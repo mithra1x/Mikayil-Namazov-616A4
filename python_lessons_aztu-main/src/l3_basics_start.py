@@ -5,48 +5,85 @@
 # ən aşağıdakı bölməyə baxın. Tam kod dərsdən sonra Teams-də olacaq.
 
 print("=== Kərpic 1 ===")   # Proqram — əmrlər ardıcıllığı
-# TODO: print(...) ilə 4 sətir (slayd «Kərpic 1»)
-
-print("salam data muhendisliyi")
-print("Baza stansiya:", "BAK-0207")
+print("Salam, data mühəndisliyi!")
+print("Baza stansiyası:", "BAK-0207")
 print(2 + 3)
 print("2 + 3")
 
 
-print("=== Kərpic 2 ===")   # Dəyişən — adı olan qutu
-# TODO: cell, rsrp, drops
-cell = "BAK-0207"
-rsrp = -95.5
-print(cell, rsrp)
 
+print("=== Kərpic 2 ===")
+cell = "BAK-0207"   # qutu: adı cell, içində mətn
+rsrp = -95.5        # qutu: adı rsrp, içində ədəd
+print(cell, rsrp)
+rsrp = -108.1       # yeni dəyər qoyduq — köhnəsi itdi
+print(cell, rsrp)
 drops = 2
-drops = drops + 1
+drops = drops + 1   # götür, 1 əlavə et, geri qoy
 print("drops =", drops)
 
-print("=== Kərpic 3 ===")   # Tiplər: int, float, str, bool, None
-# TODO: type(...) və «mətn ≠ ədəd»
-
-print(type(3))
-print(type(-95.5))
-print(type("bak-0207"))
-print(type(True))
-print(type(None))
 
 
-print("=== Kərpic 4 ===")   # Müqayisə → True / False
-# TODO: rsrp < -105, ==
+print("=== Kərpic 3 ===")
+print(type(3))           # int — tam ədəd
+print(type(-95.5))       # float — kəsr ədəd
+print(type("BAK-0207"))  # str — mətn (dırnaq içində)
+print(type(True))        # bool — məntiqi: True / False
+print(type(None))        # None — «dəyər yoxdur»
 
-print("=== Kərpic 5 ===")   # Siyahı (list)
-# TODO: rsrp_list, indeks, len, orta
 
-print("=== Kərpic 6 ===")   # Lüğət (dict)
-# TODO: row = {...}, row["region"]
 
-print("=== Kərpic 7 ===")   # Dövr (for) və şərt (if / else)
-# TODO: zəif ölçmələri saymaq
+print("=== Kərpic 4 ===")
+rsrp = -108.1
+print(rsrp < -105)        # siqnal -105 dBm-dən zəifdirmi?
+print(rsrp > -105)
+print(rsrp == -108.1)     # == «bərabərdirmi?» sualıdır
+region = "Yasamal"
+print(region == "Yasamal")
+print(region == "YASAMAL")  # hərf ölçüsü fərqlidir → False
 
-print("=== Kərpic 8 ===")   # Funksiya: çağırmaq və yaratmaq
-# TODO: round, len, max; def is_weak(rsrp)
+
+
+print("=== Kərpic 5 ===")
+rsrp_list = [-91.5, -108.1, -86.2, -103.3, -97.4]
+print(rsrp_list[0])    # birinci element — indeks 0-dan başlayır
+print(rsrp_list[1])    # ikinci element
+print(rsrp_list[-1])   # sonuncu element
+print(len(rsrp_list))  # elementlərin sayı
+avg = sum(rsrp_list) / len(rsrp_list)
+print(round(avg, 1))   # orta qiymət
+
+
+
+print("=== Kərpic 6 ===")
+row = {"cell_id": "BAK-0207", "region": "Yasamal", "rsrp_dbm": -108.1}
+print(row["region"])      # açara görə dəyər
+print(row["rsrp_dbm"])
+row["band"] = "LTE800"    # yeni açar və dəyər əlavə etdik
+print(row)
+
+
+
+print("=== Kərpic 7 ===")
+rsrp_list = [-91.5, -108.1, -86.2, -103.3, -110.4]
+weak = 0                  # sayğac: hələ zəif ölçmə yoxdur
+for v in rsrp_list:       # hər ölçmə üçün aşağıdakını təkrarla
+    if v < -105:          # şərt doğrudursa...
+        print(v, "→ zəif")
+        weak = weak + 1
+    else:                 # ...yoxsa
+        print(v, "→ normal")
+print("Zəif ölçmə sayı:", weak)
+
+
+
+print("=== Kərpic 8 ===")
+print(round(-97.36, 1))              # funksiya(arqument, arqument)
+print(len("BAK-0207"))               # mətndə neçə simvol var
+print(max([-91.5, -108.1, -86.2]))   # ən böyük dəyər
+print(round(-97.36, ndigits=1))      # adlı arqument — eyni nəticə
+
+
 
 print("=== Kərpic 9 ===")   # Nöqtə: metod
 # TODO: name.strip().capitalize()
